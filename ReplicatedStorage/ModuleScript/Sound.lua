@@ -36,15 +36,13 @@ function Sound:playSound(location, volume, looped)
 	sound:Play()
 
 
-	-- Exclui apos o uso, caso nao estiver em loop
+	-- Clean up after playback if the sound is not set to loop
 	if not looped then
 
 		sound.Ended:Connect(function()
-			sound:Destroy()
+			sound:Destroy() -- Destroy the sound instance after it finishes playing
 		end)
-
 	end
-
 end
 
 
