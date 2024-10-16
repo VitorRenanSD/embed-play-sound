@@ -16,14 +16,18 @@ function Sound:playSound(location, volume, looped)
 		warn("Sound not found: " .. tostring(location))
 		return
 	end
-	
-	if not workspace:FindFirstChild("ActiveSounds") then
-		warn("ActiveSounds folder not found")
-		return
+
+	-- Check if the ActiveSounds folder exists; create it if it doesn't
+	local activeSoundsFolder = workspace:FindFirstChild("ActiveSounds")
+	if not activeSoundsFolder then
+		activeSoundsFolder = Instance.new("Folder")
+		activeSoundsFolder.Name = "ActiveSounds"
+		activeSoundsFolder.Parent = workspace
+		warn("ActiveSounds folder not found. Created a new one.")
 	end
 	
 	
-	-- Clona o som para criar uma instancia independente
+	-- Clone the sound to create an independent instance
 	local sound = location:Clone()
 	sound.Parent = workspace.ActiveSounds
 	sound.Volume = volume
