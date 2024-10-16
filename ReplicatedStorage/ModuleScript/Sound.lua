@@ -1,7 +1,7 @@
 local Sound = {}
 Sound.__index = Sound
 
--- Construtor
+-- Constructor
 function Sound.new()
 	local self = setmetatable({}, Sound)
 	
@@ -9,9 +9,9 @@ function Sound.new()
 end
 
 
--- Metodo pra tocar sons, qualquer som
+-- Method to play sounds from any specified location
 function Sound:playSound(location, volume, looped)
-	
+	-- Check if the sound location is provided
 	if not location then
 		warn("Sound not found: " .. tostring(location))
 		return
