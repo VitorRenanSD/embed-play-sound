@@ -11,19 +11,20 @@ end
 
 -- Method to play sounds from any specified location
 function Sound:playSound(location, volume, looped)
-	-- Check if the sound location is provided
+	
+	-- Check if the sound location is provided and ActiveSounds folder
 	if not location then
 		warn("Sound not found: " .. tostring(location))
 		return
 	end
-
+	
 	-- Check if the ActiveSounds folder exists; create it if it doesn't
 	local activeSoundsFolder = workspace:FindFirstChild("ActiveSounds")
 	if not activeSoundsFolder then
 		activeSoundsFolder = Instance.new("Folder")
 		activeSoundsFolder.Name = "ActiveSounds"
 		activeSoundsFolder.Parent = workspace
-		warn("ActiveSounds folder not found. Created a new one.")
+		warn("ActiveSounds folder not found. Created one at game.Workspace")
 	end
 	
 	
