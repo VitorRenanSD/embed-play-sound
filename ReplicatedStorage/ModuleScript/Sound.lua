@@ -24,7 +24,7 @@ function Sound:playSound(location, volume, looped)
 		activeSoundsFolder = Instance.new("Folder")
 		activeSoundsFolder.Name = "ActiveSounds"
 		activeSoundsFolder.Parent = workspace
-		warn("ActiveSounds folder not found. Created one at game.Workspace")
+		warn("ActiveSounds folder not found. Create one at game.Workspace, the code will proceed with a temporary folder!")
 	end
 	
 	
